@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      main {
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(14, 43, 40);
+        padding: 3px;
+      }
+      .container {
+        width: 60%;
+        background-color: white;
+        margin: 5% auto;
+        text-align: center;
+        border-radius: 10px;
+        padding: 20px;
+        text-transform: capitalize;
+        box-shadow: 0 0 10px #ccc;
+      }
+      .container h1 {
+        margin: 10px;
+      }
+      .input-container {
+      }
+      .input-container input {
+        outline: 0;
+        border: 0;
+        padding: 10px;
+        box-shadow: 0 0 10px #ccc;
+        width: 80%;
+        border-radius: 10px;
+      }
+      .input-container button {
+        outline: 0;
+        border: 0;
+        padding: 10px;
+        border-radius: 10px;
+        text-transform: capitalize;
+        background-color: rgb(120, 160, 95);
+        color: white;
+        cursor: pointer;
+      }
+      .task {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px;
+        border-bottom: 2px solid #ccc;
+      }
+      .task button {
+        outline: 0;
+        border: 0;
+        padding: 10px;
+        border-radius: 10px;
+        text-transform: capitalize;
+        background-color: red;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <h1>to do list</h1>
+        <div class="input-container">
+          <input type="text" placeholder="enter the task" />
+          <button>add</button>
+        </div>
+        <div class="task-container"></div>
+      </div>
+    </main>
+    <script>
+      const taskInput = document.querySelector("input");
+      const addBtn = document.querySelector("button");
+      const taskContainer = document.querySelector(".task-container");
+      console.log(taskInput, addBtn, taskContainer);
+      function addTask() {
+        if (taskInput.value.trim() != "") {
+          const div = document.createElement("div");
+          const p = document.createElement("p");
+          const removeBtn = document.createElement("button");
+
+          p.innerHTML = taskInput.value;
+          removeBtn.innerHTML = "remove";
+
+          div.classList.add("task");
+
+          p.ondblclick = () => {
+            p.style.textDecoration = "line-through";
+          };
+
+          removeBtn.onclick = () => {
+            
+            taskContainer.removeChild(div)
+          };
+
+          div.appendChild(p);
+          div.appendChild(removeBtn);
+          taskContainer.appendChild(div);
+          taskInput.value = "";
+        }
+      }
+
+      addBtn.addEventListener("click", addTask);
+    </script>
+  </body>
+</html>

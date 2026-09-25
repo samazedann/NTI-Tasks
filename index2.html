@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{margin: 0;
+    padding: 0;
+    box-sizing: border-box;}
+        body {
+            margin: 0;
+           
+        }
+
+       
+
+        .slider {
+            width: 70%;
+            margin: 30px auto;
+            border: 2px solid orange;
+            border-radius: 20px;
+            padding: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .images {
+            display: flex;
+            gap: 5px;
+        }
+
+        .images img {
+            width: 200px;
+            height: 140px;
+            object-fit: cover;
+            overflow: hidden;
+        }
+
+        button {
+            background: none;
+            border: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    
+
+    <div class="slider">
+
+        <button onclick="previousImage()">«</button>
+
+        <div class="images">
+
+            <img id="image1" src="image1.jpg">
+            <img id="image2" src="image2.jpg">
+            <img id="image3" src="image3.jpg">
+
+        </div>
+
+        <button onclick="nextImage()">»</button>
+
+    </div>
+
+
+    <script>
+
+        let images = [
+            "image1.jpg",
+            "image2.jpg",
+            "image3.jpg"
+        ];
+
+        let current = 0;
+
+        function showImages() {
+
+            document.getElementById("image1").src =
+                images[current % images.length];
+
+            document.getElementById("image2").src =
+                images[(current + 1) % images.length];
+
+            document.getElementById("image3").src =
+                images[(current + 2) % images.length];
+        }
+
+
+        function nextImage() {
+
+            current++;
+
+            showImages();
+        }
+
+
+        function previousImage() {
+
+            current--;
+
+            if (current < 0) {
+                current = images.length - 1;
+            }
+
+            showImages();
+        }
+
+    </script>
+
+<body>
+    
+</body>
+</html>

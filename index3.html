@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{margin: 0;
+    padding: 0;
+    box-sizing: border-box;}
+
+        body {
+            margin: 0;
+            
+            background: linear-gradient(to right, #6084a4, #d13bd1);
+        }
+
+        .login-box {
+            width: 300px;
+            background-color: white;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 3px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            font-size: 12px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 0;
+            margin: 8px 0 20px;
+            border: none;
+            border-bottom: 1px solid gray;
+            outline: none;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(to right, #6084a4, #d13bd1);
+            color: white;
+            cursor: pointer;
+        }
+
+        #message {
+            text-align: center;
+            color: red;
+            margin-top: 15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login-box">
+
+        <h2>Login</h2>
+
+        <form onsubmit="login(event)">
+
+            <label>Username</label>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Type your username"
+            >
+
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Type your password"
+            >
+
+
+            <button class="login-btn" type="submit">
+                LOGIN
+            </button>
+
+        </form>
+
+        <p id="message"></p>
+
+    </div>
+
+
+    <script>
+
+        function login(event) {
+
+            event.preventDefault();
+
+            let username =
+                document.getElementById("username").value;
+
+            let password =
+                document.getElementById("password").value;
+
+
+            if (username == "" || password == "") {
+
+                document.getElementById("message").innerHTML =
+                    "Please enter username and password.";
+
+            }
+
+            else {
+
+                document.getElementById("message").innerHTML =
+                    "Login successful!";
+
+            }
+
+        }
+
+    </script>
+<body>
+    
+</body>
+</html>
